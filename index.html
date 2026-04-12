@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Site académique de Dumonteil Dimitri, étudiant ingénieur à Centrale Lyon passionné par les mathématiques.">
+    <meta name="keywords" content="Dumonteil Dimitri, mathématiques, probabilités, Centrale Lyon, ingénieur">
+    <meta name="author" content="Dumonteil Dimitri">
+    <meta property="og:title" content="Dumonteil Dimitri — Site Académique">
+    <meta property="og:description" content="Étudiant ingénieur à Centrale Lyon, passionné par les mathématiques et orienté vers un master 2 de probabilités.">
+    <meta property="og:url" content="#">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumonteil Dimitri</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --myGreen: #007722;
+            --myGold: #cfa03c;
+            --instForest: #004e3f;
+            --instTeal: #1a919a;
+            --instPurple: #585fa8;
+            --instClem: #ec6739;
+            --instRed: #b22133;
+            --instTan: #a38c5f;
+            --instBlack: #252525;
+
+            --colPrimary: var(--instForest);
+            --colSecondary: var(--myGreen);
+            --colAlert: var(--instClem);
+            --colInfo: var(--instTeal);
+            --colTheorem: var(--instPurple);
+            --colDanger: var(--instRed);
+            --colSubtle: var(--instTan);
+            --colText: var(--instBlack);
+            
+            --bg-color: #fafafa;
+        }
+
+        body {
+            font-family: 'Inconsolata', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--colText);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--colPrimary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--colPrimary);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--colAlert);
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem 3rem 2rem;
+            background-color: var(--colPrimary);
+            color: white;
+            border-bottom: 5px solid var(--myGold);
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--myGold);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            background-color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--myGold);
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding-top: 5rem; 
+            margin-top: -3rem;
+        }
+
+        h2 {
+            color: var(--colPrimary);
+            border-bottom: 2px solid var(--colSubtle);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--colSecondary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--colAlert);
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--colSecondary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--colAlert);
+            color: white;
+            text-decoration: none;
+        }
+
+        ul.custom-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul.custom-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--colInfo);
+        }
+
+        .date-tag {
+            color: var(--colSubtle);
+            font-weight: bold;
+            float: right;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--colPrimary);
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skill-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--colInfo);
+            border-radius: 6px;
+            padding: 1rem 1.2rem;
+        }
+
+        .skill-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--colPrimary);
+        }
+
+        .skill-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--colText);
+        }
+
+        .level-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .level-cpge  { background-color: rgba(26,145,154,0.15);  color: var(--instTeal);   border: 1px solid var(--instTeal); }
+        .level-inge  { background-color: rgba(88,95,168,0.15);   color: var(--instPurple); border: 1px solid var(--instPurple); }
+        .level-bac   { background-color: rgba(163,140,95,0.15);  color: var(--instTan);    border: 1px solid var(--instTan); }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            justify-content: center;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">À propos</a>
+    <a href="#formation">Formation</a>
+    <a href="#projets">Projets</a>
+    <a href="#distinctions">Distinctions</a>
+    <a href="#competences">Compétences</a>
+    <a href="#activites">Activités</a>
+</nav>
+
+<header id="about">
+    <img src="ppCV.jpg" alt="Photo de profil" class="profile-pic">
+    
+    <h1>Dumonteil Dimitri</h1>
+    <p>Étudiant ingénieur @ Centrale Lyon · Double cursus Mathématiques (UCBL1)</p>
+
+    <div class="social-links">
+        <a href="https://github.com/Undeavor" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:d_dmitri@icloud.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <p style="max-width:640px; margin: 1.5rem auto 0;">
+        Étudiant en école d'ingénieur passionné par les mathématiques. Mon intérêt m'oriente vers la poursuite en master 2 de probabilités.
+    </p>
+</header>
+
+<div class="container">
+
+    <!-- FORMATION -->
+    <section id="formation">
+        <h2>Formation</h2>
+        <ul class="custom-list">
+            <li>
+                <span class="date-tag">2025–2026</span>
+                <span class="level-tag level-inge">Ingénieur / L3</span><br>
+                <strong>Double cursus : Ingénieur généraliste & Licence 3 de Mathématiques Générales</strong><br>
+                <em>Centrale Lyon / Université Claude Bernard Lyon 1 (UCBL1)</em><br>
+                <br>
+                <strong>Centrale Lyon :</strong> Équations différentielles, Probabilité, Optimisation numérique, Séries de Fourier, Distributions, Allemand, Russe.<br>
+                <strong>UCBL1 :</strong> Groupes, Anneaux et Corps, Mesure et Intégration, Topologie des espaces métriques, Algèbre linéaire et bilinéaire, Analyse matricielle, Géométrie affine, Analyse fonctionnelle, Analyse complexe, Calcul différentiel, Courbes et surfaces.
+            </li>
+            <li>
+                <span class="date-tag">2023–2025</span>
+                <span class="level-tag level-cpge">CPGE</span><br>
+                <strong>Classe préparatoire aux grandes écoles MP2I / MPI</strong> — mention très bien<br>
+                <em>Lycée du Parc, Lyon</em><br>
+                Mathématiques, Informatique, Physique-Chimie, Anglais LV1, Russe LV2, Français-Philosophie.<br>
+                Obtention de la Licence 1 et 2 de mathématiques générales de l'Université Lyon 1 par équivalence.
+            </li>
+            <li>
+                <span class="date-tag">2020–2023</span>
+                <span class="level-tag level-bac">Bac</span><br>
+                <strong>Baccalauréat Général</strong> — mention très bien<br>
+                <em>Lycée Sainte-Marie, Lyon</em><br>
+                Mathématiques, Physique-Chimie, Sciences de la Vie et de la Terre, Mathématiques expertes, Section européenne (Anglais LV1), Allemand LV2, Russe LV3.
+            </li>
+        </ul>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets">
+        <h2>Projets</h2>
+        <ul class="custom-list">
+            <li>
+                <span class="date-tag">2025–2026</span>
+                <strong>Projet de Recherche Encadré (PRE) — Optimisation de portefeuille via la modélisation avancée de volatilité</strong><br>
+                <em>Centrale Lyon</em><br>
+                <br>
+                Étude théorique et implémentation en Python de modèles économétriques (ARCH, GARCH, MGARCH, HAR-RV) et de réseaux de neurones (MLP, LSTM, GRU), avec dérivation explicite des log-vraisemblances et calcul matriciel des gradients (maximum de vraisemblance, optimisation sous contrainte).<br>
+                Développement d'approches hybrides combinant modèles probabilistes et deep learning pour la prévision des rendements et matrices de covariance, puis résolution de problèmes d'optimisation (maximisation du ratio de Sharpe, minimisation du risque pour rendement cible).
+            </li>
+            <li>
+                <span class="date-tag">2024–2025</span>
+                <strong>Travail d'Initiative Personnelle Encadré (TIPE) — Géométrie Projective</strong><br>
+                <em>Lycée du Parc, Lyon</em><br>
+                <br>
+                Étude générale puis cas du plan projectif appliqué au traitement d'images : définition et étude d'un espace projectif, cartes affines, coordonnées homogènes, homographies, repères projectifs et birapport. Cas particulier du plan projectif : implémentation en Python d'un changement de repère afin de changer la perspective d'une image donnée pour un scan de photo ou un panorama.
+            </li>
+        </ul>
+    </section>
+
+    <!-- DISTINCTIONS -->
+    <section id="distinctions">
+        <h2>Distinctions</h2>
+        <ul class="custom-list">
+            <li>
+                <span class="date-tag">2025</span>
+                <strong>Admissible au concours Mines-Ponts 2025</strong><br>
+                Écrits : 15,7 en Mathématiques 1 et 18,5 en Mathématiques 2.
+            </li>
+            <li>
+                <span class="date-tag">2025</span>
+                <strong>Admissible aux écoles Centrale 2025</strong>
+            </li>
+            <li>
+                <span class="date-tag">2023</span>
+                <strong>Participation au Concours Général de Mathématiques 2023</strong>
+            </li>
+            <li>
+                <span class="date-tag">2023</span>
+                <strong>75<sup>ème</sup> place au concours Tescia 2023</strong>
+            </li>
+            <li>
+                <span class="date-tag">2022</span>
+                <strong>20<sup>ème</sup> place de l'académie de Lyon aux Olympiades de Première 2022</strong>
+            </li>
+            <li>
+                <span class="date-tag">2020–2021</span>
+                <strong>Participation à la Préparation Française Olympique Mathématique (PFOM)</strong>
+            </li>
+            <li>
+                <span class="date-tag">2020</span>
+                <strong>Demi-finale du championnat FFJM 2020</strong>
+            </li>
+        </ul>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3><i class="fas fa-code"></i> Langages & Outils</h3>
+                <p>Python, C, OCaml, LaTeX</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-language"></i> Langues</h3>
+                <p>Français (natif), Anglais (B2), Russe (B1), Allemand (A2)</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-square-root-alt"></i> Mathématiques</h3>
+                <p>Probabilités, Analyse, Algèbre, Optimisation, Géométrie, Modélisation stochastique</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-brain"></i> Domaines d'intérêt</h3>
+                <p>Modélisation probabiliste, Apprentissage automatique, Économétrie, Finance quantitative</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVITÉS -->
+    <section id="activites">
+        <h2>Activités & Engagements</h2>
+        <ul class="custom-list">
+            <li>
+                <span class="date-tag">2025–2026</span>
+                <strong>Président du Club de Danse de Centrale Lyon</strong>
+            </li>
+            <li>
+                <span class="date-tag">2025–2026</span>
+                <strong>Parcours HypoThèse — Centrale Lyon</strong><br>
+                Rencontre et parrainage avec des doctorants en mathématiques appliquées : introduction à la recherche sur un cas pratique. Participation aux événements autour du doctorat.<br>
+                Suivi mensuel des cours à l'ENS de Lyon et semaines de stages à l'UCBL1.
+            </li>
+            <li>
+                <span class="date-tag">2019–2023</span>
+                <strong>Club de Mathématiques Discrètes de Lyon</strong><br>
+                Approfondissement de mathématiques olympiques.
+            </li>
+            <li>
+                <span class="date-tag">Depuis 2015</span>
+                <strong>Échecs — 8 ans de pratique compétitive</strong><br>
+                Championnats de France jeune et compétitions en équipes de niveau national.<br>
+                Diplôme d'initiateur, d'animateur et d'arbitre de club.
+            </li>
+            <li>
+                <strong>Sports</strong><br>
+                5 ans de tennis, 2 ans de basketball.
+            </li>
+        </ul>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Dumonteil Dimitri. Hébergé sur <a href="https://pages.github.com/" style="color: var(--myGold);">GitHub Pages</a>.</p>
+</footer>
+
+</body>
+</html>
