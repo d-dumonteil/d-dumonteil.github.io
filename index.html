@@ -2,1722 +2,438 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Dumonteil Dimitri — Mathematics, Quantitative Finance, Data Science and Research.">
-
+    <meta name="description" content="Dumonteil Dimitri — Mathematics, Quantitative Finance, Data Science and Research.">
     <meta name="author" content="Dumonteil Dimitri">
-
-    <meta property="og:title"
-          content="Dumonteil Dimitri — Mathematics · Quantitative Finance · Data Science">
-
-    <meta property="og:description"
-          content="Student at Centrale Lyon and Lyon 1 working at the intersection of mathematics, quantitative finance, data science and research.">
-
+    <meta property="og:title" content="Dumonteil Dimitri — Mathematics · Quantitative Finance · Data Science">
+    <meta property="og:description" content="Engineering student at Centrale Lyon and Mathematics student at Lyon 1 working at the intersection of mathematics, quantitative finance, data science and research.">
     <meta property="og:type" content="website">
-
     <title>Dumonteil Dimitri</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-
         /* =========================================================
            GLOBAL
         ========================================================= */
-
         :root {
             --background: #fafafa;
             --surface: #ffffff;
             --surface-dark: #111827;
-
             --text: #171717;
             --text-light: #666666;
             --text-dark: #f5f5f5;
-
             --border: #e5e5e5;
-
             --primary: #111827;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
-
             --code-background: #f3f4f6;
-
             --max-width: 1050px;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-
-            background: var(--background);
-            color: var(--text);
-
-            font-family: "Inter", Arial, sans-serif;
-
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--accent);
-        }
-
-        .mono {
-            font-family: "JetBrains Mono", monospace;
-        }
-
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; background: var(--background); color: var(--text); font-family: "Inter", Arial, sans-serif; line-height: 1.7; }
+        a { color: inherit; text-decoration: none; }
+        a:hover { color: var(--accent); }
+        .mono { font-family: "JetBrains Mono", monospace; }
 
         /* =========================================================
            NAVIGATION
         ========================================================= */
-
-        nav {
-            position: sticky;
-            top: 0;
-
-            z-index: 1000;
-
-            background: rgba(250, 250, 250, 0.94);
-
-            backdrop-filter: blur(10px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            max-width: var(--max-width);
-
-            margin: auto;
-
-            padding: 1rem 1.5rem;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            font-family: "JetBrains Mono", monospace;
-
-            font-weight: 600;
-
-            letter-spacing: -0.04em;
-        }
-
-        .nav-links {
-            display: flex;
-
-            gap: 1.5rem;
-
-            font-size: 0.9rem;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
+        nav { position: sticky; top: 0; z-index: 1000; background: rgba(250, 250, 250, 0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        .nav-container { max-width: var(--max-width); margin: auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-family: "JetBrains Mono", monospace; font-weight: 600; letter-spacing: -0.04em; }
+        .nav-links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+        .nav-links a { color: var(--text-light); transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--text); }
 
         /* =========================================================
-           MAIN
+           MAIN & HERO
         ========================================================= */
+        main { max-width: var(--max-width); margin: auto; padding: 0 1.5rem; }
+        .hero { min-height: 680px; display: flex; flex-direction: column; justify-content: center; padding: 6rem 0; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 280px; gap: 5rem; align-items: center; }
+        .hero-label { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 0.85rem; margin-bottom: 1rem; }
+        h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -0.07em; margin: 0 0 1.5rem 0; font-weight: 700; }
+        .hero-title { font-size: 1.35rem; color: var(--text-light); max-width: 700px; margin-bottom: 1.5rem; }
+        .hero-description { max-width: 650px; color: var(--text-light); font-size: 1rem; }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+        
+        .button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
+        .button:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+        .button.primary { background: var(--primary); color: white; border-color: var(--primary); }
+        .button.primary:hover { background: #000; color: white; }
 
-        main {
-            max-width: var(--max-width);
-
-            margin: auto;
-
-            padding: 0 1.5rem;
-        }
-
+        .profile-container { display: flex; justify-content: center; }
+        .profile { width: 230px; height: 230px; object-fit: cover; border-radius: 50%; border: 1px solid var(--border); filter: grayscale(10%); }
 
         /* =========================================================
-           HERO
+           SECTIONS & COMPONENTS
         ========================================================= */
+        section { padding: 6rem 0; border-top: 1px solid var(--border); }
+        .section-header { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .section-number { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 0.8rem; }
+        h2 { font-size: 2rem; letter-spacing: -0.04em; margin: 0; }
+        .section-description { color: var(--text-light); max-width: 700px; margin-top: 0.7rem; }
 
-        .hero {
-            min-height: 680px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            padding: 6rem 0;
-        }
-
-        .hero-grid {
-            display: grid;
-
-            grid-template-columns: 1fr 280px;
-
-            gap: 5rem;
-
-            align-items: center;
-        }
-
-        .hero-label {
-            font-family: "JetBrains Mono", monospace;
-
-            color: var(--accent);
-
-            font-size: 0.85rem;
-
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-
-            line-height: 1;
-
-            letter-spacing: -0.07em;
-
-            margin: 0 0 1.5rem 0;
-
-            font-weight: 700;
-        }
-
-        .hero-title {
-            font-size: 1.35rem;
-
-            color: var(--text-light);
-
-            max-width: 700px;
-
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-description {
-            max-width: 650px;
-
-            color: var(--text-light);
-
-            font-size: 1rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 0.75rem;
-
-            margin-top: 2rem;
-        }
-
-        .button {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 0.5rem;
-
-            padding: 0.7rem 1rem;
-
-            border: 1px solid var(--border);
-
-            border-radius: 6px;
-
-            background: var(--surface);
-
-            font-size: 0.9rem;
-
-            font-weight: 500;
-
-            transition: all 0.2s ease;
-        }
-
-        .button:hover {
-            border-color: var(--accent);
-
-            color: var(--accent);
-
-            transform: translateY(-1px);
-        }
-
-        .button.primary {
-            background: var(--primary);
-
-            color: white;
-
-            border-color: var(--primary);
-        }
-
-        .button.primary:hover {
-            background: #000;
-
-            color: white;
-        }
-
+        .research-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .research-item { padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+        .research-item h3 { margin-top: 0; font-size: 1rem; }
+        .research-item p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 0; }
+        
+        .tag-container { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+        .tag { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; padding: 0.25rem 0.5rem; background: var(--code-background); border-radius: 4px; color: #444; }
 
         /* =========================================================
-           PROFILE
+           PROJECTS
         ========================================================= */
+        .featured-project { background: var(--surface-dark); color: white; border-radius: 10px; padding: 3rem; margin-bottom: 3rem; }
+        .featured-project .project-label { font-family: "JetBrains Mono", monospace; color: #93c5fd; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+        .featured-project h3 { font-size: 2rem; letter-spacing: -0.04em; margin: 0.5rem 0 1rem; }
+        .featured-project p { color: #c7c7c7; max-width: 750px; }
+        .featured-project .tag { background: #1f2937; color: #d1d5db; }
+        .project-links { margin-top: 1.5rem; display: flex; gap: 0.7rem; flex-wrap: wrap; }
+        .dark-button { border: 1px solid #374151; padding: 0.6rem 0.9rem; border-radius: 5px; font-size: 0.85rem; }
+        .dark-button:hover { border-color: #93c5fd; color: #93c5fd; }
 
-        .profile-container {
-            display: flex;
-
-            justify-content: center;
-        }
-
-        .profile {
-            width: 230px;
-            height: 230px;
-
-            object-fit: cover;
-
-            border-radius: 50%;
-
-            border: 1px solid var(--border);
-
-            filter: grayscale(10%);
-        }
-
+        .project { display: grid; grid-template-columns: 130px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); }
+        .project:last-child { border-bottom: none; }
+        .project-date { font-family: "JetBrains Mono", monospace; color: var(--text-light); font-size: 0.75rem; }
+        .project h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+        .project p { color: var(--text-light); font-size: 0.9rem; max-width: 750px; }
+        .project-meta { font-size: 0.8rem; color: var(--text-light); }
 
         /* =========================================================
-           SECTIONS
+           NOTES & SKILLS & CV
         ========================================================= */
-
-        section {
-            padding: 6rem 0;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .section-header {
-            display: grid;
-
-            grid-template-columns: 220px 1fr;
-
-            gap: 3rem;
-
-            margin-bottom: 3rem;
-        }
-
-        .section-number {
-            font-family: "JetBrains Mono", monospace;
-
-            color: var(--accent);
-
-            font-size: 0.8rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-
-            letter-spacing: -0.04em;
-
-            margin: 0;
-        }
-
-        .section-description {
-            color: var(--text-light);
-
-            max-width: 700px;
-
-            margin-top: 0.7rem;
-        }
-
-
-        /* =========================================================
-           RESEARCH
-        ========================================================= */
-
-        .research-grid {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 1rem;
-        }
-
-        .research-item {
-            padding: 1.5rem;
-
-            background: var(--surface);
-
-            border: 1px solid var(--border);
-
-            border-radius: 8px;
-        }
-
-        .research-item h3 {
-            margin-top: 0;
-
-            font-size: 1rem;
-        }
-
-        .research-item p {
-            color: var(--text-light);
-
-            font-size: 0.9rem;
-
-            margin-bottom: 0;
-        }
-
-        .tag-container {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 0.4rem;
-
-            margin-top: 1rem;
-        }
-
-        .tag {
-            font-family: "JetBrains Mono", monospace;
-
-            font-size: 0.7rem;
-
-            padding: 0.25rem 0.5rem;
-
-            background: var(--code-background);
-
-            border-radius: 4px;
-
-            color: #444;
-        }
-
-
-        /* =========================================================
-           FEATURED PROJECT
-        ========================================================= */
-
-        .featured-project {
-            background: var(--surface-dark);
-
-            color: white;
-
-            border-radius: 10px;
-
-            padding: 3rem;
-
-            margin-bottom: 3rem;
-        }
-
-        .featured-project .project-label {
-            font-family: "JetBrains Mono", monospace;
-
-            color: #93c5fd;
-
-            font-size: 0.75rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.08em;
-        }
-
-        .featured-project h3 {
-            font-size: 2rem;
-
-            letter-spacing: -0.04em;
-
-            margin: 0.5rem 0 1rem;
-        }
-
-        .featured-project p {
-            color: #c7c7c7;
-
-            max-width: 750px;
-        }
-
-        .featured-project .tag {
-            background: #1f2937;
-
-            color: #d1d5db;
-        }
-
-        .project-links {
-            margin-top: 1.5rem;
-
-            display: flex;
-
-            gap: 0.7rem;
-
-            flex-wrap: wrap;
-        }
-
-        .dark-button {
-            border: 1px solid #374151;
-
-            padding: 0.6rem 0.9rem;
-
-            border-radius: 5px;
-
-            font-size: 0.85rem;
-        }
-
-        .dark-button:hover {
-            border-color: #93c5fd;
-
-            color: #93c5fd;
-        }
-
-
-        /* =========================================================
-           PROJECT LIST
-        ========================================================= */
-
-        .project {
-            display: grid;
-
-            grid-template-columns: 130px 1fr;
-
-            gap: 2rem;
-
-            padding: 2rem 0;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project:last-child {
-            border-bottom: none;
-        }
-
-        .project-date {
-            font-family: "JetBrains Mono", monospace;
-
-            color: var(--text-light);
-
-            font-size: 0.75rem;
-        }
-
-        .project h3 {
-            margin: 0 0 0.5rem;
-
-            font-size: 1.15rem;
-        }
-
-        .project p {
-            color: var(--text-light);
-
-            font-size: 0.9rem;
-
-            max-width: 750px;
-        }
-
-        .project-meta {
-            font-size: 0.8rem;
-
-            color: var(--text-light);
-        }
-
-
-        /* =========================================================
-           RESEARCH NOTES
-        ========================================================= */
-
-        .notes {
-            border-top: 1px solid var(--border);
-        }
-
-        .note {
-            display: grid;
-
-            grid-template-columns: 150px 1fr auto;
-
-            gap: 2rem;
-
-            align-items: center;
-
-            padding: 1.2rem 0;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .note-date {
-            font-family: "JetBrains Mono", monospace;
-
-            font-size: 0.75rem;
-
-            color: var(--text-light);
-        }
-
-        .note-title {
-            font-weight: 500;
-        }
-
-        .note-type {
-            font-size: 0.7rem;
-
-            font-family: "JetBrains Mono", monospace;
-
-            color: var(--accent);
-        }
-
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        .skills-grid {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 1px;
-
-            background: var(--border);
-
-            border: 1px solid var(--border);
-
-            border-radius: 8px;
-
-            overflow: hidden;
-        }
-
-        .skill {
-            background: var(--surface);
-
-            padding: 1.5rem;
-        }
-
-        .skill h3 {
-            font-family: "JetBrains Mono", monospace;
-
-            font-size: 0.8rem;
-
-            color: var(--accent);
-
-            margin-top: 0;
-
-            text-transform: uppercase;
-        }
-
-        .skill p {
-            margin-bottom: 0;
-
-            color: var(--text-light);
-
-            font-size: 0.9rem;
-        }
-
-
-        /* =========================================================
-           CV
-        ========================================================= */
-
-        .cv-box {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 2rem;
-
-            background: var(--surface);
-
-            border: 1px solid var(--border);
-
-            border-radius: 8px;
-
-            padding: 2rem;
-        }
-
-        .cv-box h3 {
-            margin-top: 0;
-
-            margin-bottom: 0.3rem;
-        }
-
-        .cv-box p {
-            margin: 0;
-
-            color: var(--text-light);
-
-            font-size: 0.9rem;
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        .contact {
-            text-align: center;
-
-            padding: 8rem 0;
-        }
-
-        .contact h2 {
-            font-size: 3rem;
-        }
-
-        .contact p {
-            color: var(--text-light);
-
-            max-width: 550px;
-
-            margin: 1rem auto 2rem;
-        }
-
-        .social-links {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 1.5rem;
-
-            font-size: 1.2rem;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            border-top: 1px solid var(--border);
-
-            padding: 2rem 1.5rem;
-
-            text-align: center;
-
-            color: var(--text-light);
-
-            font-size: 0.8rem;
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
+        .notes { border-top: 1px solid var(--border); }
+        .note { display: grid; grid-template-columns: 150px 1fr auto; gap: 2rem; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+        .note-date { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-light); }
+        .note-title { font-weight: 500; }
+        .note-type { font-size: 0.7rem; font-family: "JetBrains Mono", monospace; color: var(--accent); }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .skill { background: var(--surface); padding: 1.5rem; }
+        .skill h3 { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent); margin-top: 0; text-transform: uppercase; }
+        .skill p { margin-bottom: 0; color: var(--text-light); font-size: 0.9rem; }
+
+        .cv-box { display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; }
+        .cv-box h3 { margin-top: 0; margin-bottom: 0.3rem; }
+        .cv-box p { margin: 0; color: var(--text-light); font-size: 0.9rem; }
+
+        .contact { text-align: center; padding: 8rem 0; }
+        .contact h2 { font-size: 3rem; }
+        .contact p { color: var(--text-light); max-width: 550px; margin: 1rem auto 2rem; }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; font-size: 1.2rem; }
+        footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--text-light); font-size: 0.8rem; }
 
         @media (max-width: 800px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-
-                padding: 5rem 0;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-
-                gap: 3rem;
-            }
-
-            .profile-container {
-                justify-content: flex-start;
-            }
-
-            .profile {
-                width: 150px;
-                height: 150px;
-            }
-
-            .section-header {
-                grid-template-columns: 1fr;
-
-                gap: 0.5rem;
-            }
-
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project {
-                grid-template-columns: 1fr;
-
-                gap: 0.5rem;
-            }
-
-            .note {
-                grid-template-columns: 1fr;
-
-                gap: 0.3rem;
-            }
-
-            .note-type {
-                display: none;
-            }
-
-            .cv-box {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .featured-project {
-                padding: 2rem;
-            }
+            .nav-links { display: none; }
+            .hero { min-height: auto; padding: 5rem 0; }
+            .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .profile-container { justify-content: flex-start; }
+            .profile { width: 150px; height: 150px; }
+            .section-header { grid-template-columns: 1fr; gap: 0.5rem; }
+            .research-grid, .skills-grid, .project, .note { grid-template-columns: 1fr; gap: 0.5rem; }
+            .note-type { display: none; }
+            .cv-box { flex-direction: column; align-items: flex-start; }
+            .featured-project { padding: 2rem; }
         }
-
     </style>
 </head>
-
-
 <body>
 
-
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
-
 <nav>
-
     <div class="nav-container">
-
-        <a href="#" class="nav-logo">
-            DD.
-        </a>
-
+        <a href="#" class="nav-logo">DD.</a>
         <div class="nav-links">
-
             <a href="#research">Research</a>
-
             <a href="#projects">Projects</a>
-
             <a href="#notes">Notes</a>
-
             <a href="#skills">Skills</a>
-
             <a href="#cv">CV</a>
-
             <a href="#contact">Contact</a>
-
         </div>
-
     </div>
-
 </nav>
-
 
 <main>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
 <section class="hero" style="border-top: none;">
-
     <div class="hero-grid">
-
         <div>
-
-            <div class="hero-label">
-                MATHEMATICS · QUANTITATIVE FINANCE · DATA SCIENCE
-            </div>
-
-            <h1>
-                Dimitri<br>
-                Dumonteil
-            </h1>
-
+            <div class="hero-label">MATHEMATICS · QUANTITATIVE FINANCE · DATA SCIENCE</div>
+            <h1>Dimitri<br>Dumonteil</h1>
             <div class="hero-title">
-                Engineering student at Centrale Lyon
-                & Mathematics student at Lyon 1.
+                Engineering student at Centrale Lyon & Mathematics student at Lyon 1.
             </div>
-
             <p class="hero-description">
-
-                I work at the intersection of mathematics,
-                probability, statistical learning and quantitative finance.
-
-                My interests include stochastic modelling,
-                time series, mathematical finance,
-                optimization and machine learning.
-
+                I work at the intersection of mathematics, probability, statistical learning and quantitative finance.
+                My interests include stochastic modelling, time series, mathematical finance, optimization and machine learning.
             </p>
-
             <div class="hero-buttons">
-
-                <a href="CV%20fr.pdf"
-                   class="button primary"
-                   target="_blank">
-
-                    <i class="fa-solid fa-file-pdf"></i>
-
-                    CV
-
+                <a href="CV_Dimitri_Dumonteil.pdf" class="button primary" target="_blank">
+                    <i class="fa-solid fa-file-pdf"></i> CV
                 </a>
-
-                <a href="https://github.com/Undeavor"
-                   target="_blank"
-                   class="button">
-
-                    <i class="fa-brands fa-github"></i>
-
-                    GitHub
-
+                <a href="https://github.com/d-dumonteil" target="_blank" class="button">
+                    <i class="fa-brands fa-github"></i> GitHub
                 </a>
-
-                <a href="https://www.linkedin.com/"
-                   target="_blank"
-                   class="button">
-
-                    <i class="fa-brands fa-linkedin"></i>
-
-                    LinkedIn
-
+                <a href="https://linkedin.com/in/dimitri-dumonteil" target="_blank" class="button">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
                 </a>
-
             </div>
-
         </div>
-
-
         <div class="profile-container">
-
-            <img src="ppCV.jpg"
-                 alt="Dimitri Dumonteil"
-                 class="profile">
-
+            <img src="ppCV.jpg" alt="Dimitri Dumonteil" class="profile">
         </div>
-
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     RESEARCH
-========================================================= -->
 
 <section id="research">
-
     <div class="section-header">
-
-        <div class="section-number">
-            01 / RESEARCH
-        </div>
-
+        <div class="section-number">01 / RESEARCH</div>
         <div>
-
-            <h2>
-                Research interests
-            </h2>
-
+            <h2>Research interests</h2>
             <p class="section-description">
-
-                I am particularly interested in mathematical and
-                statistical approaches to financial modelling,
-                with a strong interest in probability and stochastic
-                processes.
-
+                I am particularly interested in mathematical and statistical approaches to financial modelling, with a strong interest in probability and stochastic processes.
             </p>
-
         </div>
-
     </div>
-
-
     <div class="research-grid">
-
-
         <div class="research-item">
-
-            <h3>
-                Probability & Stochastic Processes
-            </h3>
-
-            <p>
-                Probability theory, stochastic processes,
-                stochastic modelling and statistical inference.
-            </p>
-
+            <h3>Stochastic Economics & Probability</h3>
+            <p>Probability theory, stochastic processes, stochastic modelling of multi-agent economic systems and statistical inference.</p>
             <div class="tag-container">
-
                 <span class="tag">Probability</span>
-
                 <span class="tag">Stochastic Processes</span>
-
-                <span class="tag">Statistics</span>
-
+                <span class="tag">Market Equilibrium</span>
             </div>
-
         </div>
-
-
         <div class="research-item">
-
-            <h3>
-                Mathematical Finance
-            </h3>
-
-            <p>
-                Derivatives pricing, volatility modelling,
-                portfolio optimization and quantitative methods
-                for financial markets.
-            </p>
-
+            <h3>Mathematical Finance</h3>
+            <p>Derivatives pricing, volatility modelling, portfolio optimization and quantitative methods for financial markets.</p>
             <div class="tag-container">
-
                 <span class="tag">Black-Scholes</span>
-
                 <span class="tag">Options</span>
-
                 <span class="tag">Volatility</span>
-
             </div>
-
         </div>
-
-
         <div class="research-item">
-
-            <h3>
-                Statistical Learning
-            </h3>
-
-            <p>
-                Machine learning methods for forecasting,
-                high-dimensional data and financial time series.
-            </p>
-
+            <h3>Statistical Learning</h3>
+            <p>Machine learning methods for forecasting, high-dimensional data and financial time series.</p>
             <div class="tag-container">
-
                 <span class="tag">Time Series</span>
-
                 <span class="tag">ML</span>
-
                 <span class="tag">Deep Learning</span>
-
             </div>
-
         </div>
-
-
         <div class="research-item">
-
-            <h3>
-                Optimization
-            </h3>
-
-            <p>
-                Convex optimization, numerical methods,
-                constrained optimization and portfolio construction.
-            </p>
-
+            <h3>Optimization</h3>
+            <p>Convex optimization, numerical methods, constrained optimization and portfolio construction.</p>
             <div class="tag-container">
-
                 <span class="tag">Convex Optimization</span>
-
                 <span class="tag">Numerical Methods</span>
-
                 <span class="tag">CVXPY</span>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     PROJECTS
-========================================================= -->
 
 <section id="projects">
-
     <div class="section-header">
-
-        <div class="section-number">
-            02 / PROJECTS
-        </div>
-
+        <div class="section-number">02 / PROJECTS</div>
         <div>
-
-            <h2>
-                Selected projects
-            </h2>
-
+            <h2>Selected projects</h2>
             <p class="section-description">
-
-                A selection of mathematical, quantitative finance
-                and machine learning projects.
-
+                A selection of mathematical research, quantitative finance, and machine learning projects.
             </p>
-
         </div>
-
     </div>
 
-
-    <!-- FEATURED -->
-
+    <!-- FEATURED 1: ICJ Internship -->
     <div class="featured-project">
-
-        <div class="project-label">
-            FEATURED · QUANTITATIVE FINANCE
-        </div>
-
-        <h3>
-            Portfolio Optimization
-            with Volatility Models
-        </h3>
-
+        <div class="project-label">FEATURED · MATHEMATICAL RESEARCH</div>
+        <h3>Equilibrium of a Stochastic Economic System</h3>
         <p>
-
-            Study and implementation of advanced volatility models
-            for portfolio optimization.
-
-            The project combines econometric models such as
-            ARCH/GARCH, MGARCH and HAR-RV with neural approaches
-            including MLP and LSTM models for forecasting returns
-            and covariance matrices.
-
-            Portfolio construction is performed through constrained
-            optimization and risk-adjusted objectives.
-
+            Study of the existence and uniqueness of a general equilibrium within a random economic system at the Institut Camille Jordan.
+            Mathematical proof of equilibrium in expectation under continuous distributions using Brouwer's Fixed Point Theorem. 
+            Implemented Monte-Carlo simulations and fixed-point algorithms to estimate expected supply and demand and empirically evaluate the law of value.
         </p>
-
         <div class="tag-container">
-
             <span class="tag">Python</span>
-
-            <span class="tag">BEKK-GJR</span>
-
-            <span class="tag">MGARCH</span>
-
-            <span class="tag">HAR-RV</span>
-
-            <span class="tag">LSTM</span>
-
-            <span class="tag">MLP</span>
-
-            <span class="tag">CVXPY</span>
-
-            <span class="tag">Portfolio Optimization</span>
-
+            <span class="tag">Stochastic Economics</span>
+            <span class="tag">Monte Carlo</span>
+            <span class="tag">Brouwer's Fixed Point</span>
         </div>
-
         <div class="project-links">
-
-            <a href="https://github.com/Undeavor"
-               target="_blank"
-               class="dark-button">
-
-                <i class="fa-brands fa-github"></i>
-                GitHub
-
+            <a href="https://github.com/d-dumonteil/equilibrium" target="_blank" class="dark-button">
+                <i class="fa-brands fa-github"></i> GitHub
             </a>
-
-            <!-- Replace with your actual PDF -->
-
-            <a href="#"
-               class="dark-button">
-
-                <i class="fa-solid fa-file-pdf"></i>
-                Report
-
+            <a href="rapport_stage_ICJ(7).pdf" target="_blank" class="dark-button">
+                <i class="fa-solid fa-file-pdf"></i> Report
             </a>
-
         </div>
-
     </div>
 
-
-    <!-- PROJECT 2 -->
-
-    <div class="project">
-
-        <div class="project-date">
-            2025–2026
+    <!-- FEATURED 2: Quant Finance -->
+    <div class="featured-project">
+        <div class="project-label">FEATURED · QUANTITATIVE FINANCE</div>
+        <h3>Portfolio Optimization via Neural Networks</h3>
+        <p>
+            Comparison of classical econometric models (BEKK-GJR) with neural architectures (MLP, LSTM) for conditional volatility forecasting.
+            Developed a multivariate LSTM architecture (MLSTM) predicting the conditional covariance matrix through a Cholesky decomposition to guarantee positive definiteness. 
+            Designed Minimum-Variance, Risk-Parity, and Sharpe-optimal portfolio strategies incorporating proportional transaction costs using OSQP and CVXPY.
+        </p>
+        <div class="tag-container">
+            <span class="tag">PyTorch</span>
+            <span class="tag">BEKK-GJR</span>
+            <span class="tag">MLSTM</span>
+            <span class="tag">Cholesky</span>
+            <span class="tag">CVXPY</span>
+            <span class="tag">Portfolio Optimization</span>
         </div>
+        <div class="project-links">
+            <a href="https://github.com/d-dumonteil" target="_blank" class="dark-button">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="Rapport_PE_28_2026 2.pdf" target="_blank" class="dark-button">
+                <i class="fa-solid fa-file-pdf"></i> Report
+            </a>
+        </div>
+    </div>
 
+    <!-- PROJECT 3: TIPE -->
+    <div class="project">
+        <div class="project-date">2024–2025</div>
         <div>
-
-            <h3>
-                Volatility Forecasting with Machine Learning
-            </h3>
-
-            <div class="project-meta">
-                Centrale Lyon
-            </div>
-
+            <h3>Projective Geometry & Image Processing</h3>
+            <div class="project-meta">Lycée du Parc</div>
             <p>
-
-                Comparison between classical volatility models
-                and neural architectures for financial time series.
-
-                Implementation of covariance forecasting using
-                recurrent neural networks and matrix transformations.
-
+                Mathematical study of projective spaces, homogeneous coordinates, homographies and cross-ratios. 
+                Implementation of perspective transformations and backward warping algorithms for image rectification.
             </p>
-
             <div class="tag-container">
-
                 <span class="tag">Python</span>
-
-                <span class="tag">PyTorch</span>
-
-                <span class="tag">LSTM</span>
-
-                <span class="tag">GARCH</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PROJECT 3 -->
-
-    <div class="project">
-
-        <div class="project-date">
-            2025–2026
-        </div>
-
-        <div>
-
-            <h3>
-                Black-Scholes & Implied Volatility
-            </h3>
-
-            <div class="project-meta">
-                Quantitative Finance
-            </div>
-
-            <p>
-
-                Implementation of the Black-Scholes model,
-                analytical Greeks and numerical implied volatility
-                estimation.
-
-                Numerical methods include bisection and
-                Monte Carlo approaches.
-
-            </p>
-
-            <div class="tag-container">
-
-                <span class="tag">Black-Scholes</span>
-
-                <span class="tag">Options</span>
-
-                <span class="tag">Monte Carlo</span>
-
-                <span class="tag">Numerical Methods</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PROJECT 4 -->
-
-    <div class="project">
-
-        <div class="project-date">
-            2024–2025
-        </div>
-
-        <div>
-
-            <h3>
-                Projective Geometry & Image Processing
-            </h3>
-
-            <div class="project-meta">
-                Lycée du Parc
-            </div>
-
-            <p>
-
-                Mathematical study of projective spaces,
-                homogeneous coordinates, homographies and
-                cross-ratios.
-
-                Implementation of perspective transformations
-                for image rectification and panorama construction.
-
-            </p>
-
-            <div class="tag-container">
-
-                <span class="tag">Python</span>
-
                 <span class="tag">Projective Geometry</span>
-
                 <span class="tag">Homography</span>
-
                 <span class="tag">Image Processing</span>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     RESEARCH NOTES
-========================================================= -->
 
 <section id="notes">
-
     <div class="section-header">
-
-        <div class="section-number">
-            03 / NOTES
-        </div>
-
+        <div class="section-number">03 / NOTES</div>
         <div>
-
-            <h2>
-                Research notes
-            </h2>
-
-            <p class="section-description">
-
-                Short technical notes on mathematics,
-                statistics and quantitative finance.
-
-            </p>
-
+            <h2>Research notes</h2>
+            <p class="section-description">Short technical notes on mathematics, statistics and quantitative finance.</p>
         </div>
-
     </div>
-
-
     <div class="notes">
-
-
         <div class="note">
-
-            <div class="note-date">
-                2026
-            </div>
-
-            <a href="#" class="note-title">
-
-                Black-Scholes and Implied Volatility
-
-            </a>
-
-            <div class="note-type">
-                FINANCE
-            </div>
-
+            <div class="note-date">2026</div>
+            <a href="#" class="note-title">Brouwer's Fixed Point Theorem in Stochastic Economics</a>
+            <div class="note-type">MATHEMATICS</div>
         </div>
-
-
         <div class="note">
-
-            <div class="note-date">
-                2026
-            </div>
-
-            <a href="#" class="note-title">
-
-                Introduction to GARCH Models
-
-            </a>
-
-            <div class="note-type">
-                TIME SERIES
-            </div>
-
+            <div class="note-date">2026</div>
+            <a href="#" class="note-title">Cholesky Decomposition for Covariance Neural Networks</a>
+            <div class="note-type">MACHINE LEARNING</div>
         </div>
-
-
         <div class="note">
-
-            <div class="note-date">
-                2026
-            </div>
-
-            <a href="#" class="note-title">
-
-                Monte Carlo Methods for Option Pricing
-
-            </a>
-
-            <div class="note-type">
-                NUMERICAL
-            </div>
-
+            <div class="note-date">2026</div>
+            <a href="#" class="note-title">Multivariate GARCH Models (BEKK-GJR)</a>
+            <div class="note-type">TIME SERIES</div>
         </div>
-
-
-        <div class="note">
-
-            <div class="note-date">
-                2026
-            </div>
-
-            <a href="#" class="note-title">
-
-                Portfolio Optimization and the Sharpe Ratio
-
-            </a>
-
-            <div class="note-type">
-                OPTIMIZATION
-            </div>
-
-        </div>
-
-
-        <div class="note">
-
-            <div class="note-date">
-                2026
-            </div>
-
-            <a href="#" class="note-title">
-
-                Covariance Forecasting with LSTM Networks
-
-            </a>
-
-            <div class="note-type">
-                MACHINE LEARNING
-            </div>
-
-        </div>
-
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     SKILLS
-========================================================= -->
 
 <section id="skills">
-
     <div class="section-header">
-
-        <div class="section-number">
-            04 / SKILLS
-        </div>
-
+        <div class="section-number">04 / SKILLS</div>
         <div>
-
-            <h2>
-                Technical skills
-            </h2>
-
-            <p class="section-description">
-
-                Mathematical, computational and quantitative
-                tools used throughout my projects.
-
-            </p>
-
+            <h2>Technical skills</h2>
+            <p class="section-description">Mathematical, computational and quantitative tools used throughout my projects.</p>
         </div>
-
     </div>
-
-
     <div class="skills-grid">
-
-
         <div class="skill">
-
-            <h3>
-                Programming
-            </h3>
-
-            <p>
-                Python · C · C++ · OCaml · LaTeX
-            </p>
-
+            <h3>Programming</h3>
+            <p>Python · C/C++ · OCaml · SQL · VBA · LaTeX</p>
         </div>
-
-
         <div class="skill">
-
-            <h3>
-                Scientific Computing
-            </h3>
-
-            <p>
-                NumPy · SciPy · pandas · Matplotlib
-            </p>
-
+            <h3>Scientific Computing</h3>
+            <p>NumPy · SciPy · pandas · Matplotlib · Numba</p>
         </div>
-
-
         <div class="skill">
-
-            <h3>
-                Machine Learning
-            </h3>
-
-            <p>
-                PyTorch · TensorFlow · XGBoost ·
-                Neural Networks · Time Series
-            </p>
-
+            <h3>Machine Learning</h3>
+            <p>PyTorch · Scikit-Learn · Neural Networks (MLP, LSTM) · Deep Learning</p>
         </div>
-
-
         <div class="skill">
-
-            <h3>
-                Statistics
-            </h3>
-
-            <p>
-                statsmodels · ARCH/GARCH ·
-                Maximum Likelihood · Statistical Inference
-            </p>
-
+            <h3>Quantitative Finance</h3>
+            <p>Time Series Forecasting · Volatility Modelling (GARCH/BEKK) · Monte Carlo Methods · Portfolio Optimization</p>
         </div>
-
-
         <div class="skill">
-
-            <h3>
-                Quantitative Finance
-            </h3>
-
-            <p>
-                Black-Scholes · Options · Volatility Modelling ·
-                Portfolio Optimization
-            </p>
-
+            <h3>Optimization</h3>
+            <p>CVXPY · OSQP · Convex Optimization · Numerical Methods</p>
         </div>
-
-
         <div class="skill">
-
-            <h3>
-                Optimization
-            </h3>
-
-            <p>
-                CVXPY · OSQP · Convex Optimization ·
-                Numerical Optimization
-            </p>
-
+            <h3>Mathematics</h3>
+            <p>Probability · Statistics · Stochastic Processes · Analysis · Algebra · Measure Theory</p>
         </div>
-
-
-        <div class="skill">
-
-            <h3>
-                Mathematics
-            </h3>
-
-            <p>
-                Probability · Statistics · Analysis ·
-                Algebra · Optimization · Stochastic Modelling
-            </p>
-
-        </div>
-
-
-        <div class="skill">
-
-            <h3>
-                Tools
-            </h3>
-
-            <p>
-                Git · GitHub · Linux · Jupyter ·
-                VS Code · LaTeX
-            </p>
-
-        </div>
-
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     CV
-========================================================= -->
 
 <section id="cv">
-
     <div class="section-header">
-
-        <div class="section-number">
-            05 / CV
-        </div>
-
+        <div class="section-number">05 / CV</div>
         <div>
-
-            <h2>
-                Curriculum Vitae
-            </h2>
-
-            <p class="section-description">
-
-                Academic background, technical experience
-                and selected projects.
-
-            </p>
-
+            <h2>Curriculum Vitae</h2>
+            <p class="section-description">Academic background, technical experience and selected projects.</p>
         </div>
-
     </div>
-
-
     <div class="cv-box">
-
         <div>
-
-            <h3>
-                Dumonteil Dimitri — CV
-            </h3>
-
-            <p>
-                Mathematics · Quantitative Finance · Data Science
-            </p>
-
+            <h3>Dumonteil Dimitri — CV</h3>
+            <p>Mathematics · Quantitative Finance · Data Science</p>
         </div>
-
-        <a href="CV%20fr.pdf"
-           class="button primary"
-           target="_blank">
-
-            <i class="fa-solid fa-file-pdf"></i>
-
-            Open CV
-
+        <a href="CV_Dimitri_Dumonteil.pdf" class="button primary" target="_blank">
+            <i class="fa-solid fa-file-pdf"></i> Open CV
         </a>
-
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
 
 <section id="contact" class="contact">
-
-    <h2>
-        Let's talk.
-    </h2>
-
+    <h2>Let's talk.</h2>
     <p>
-
-        I am interested in quantitative finance,
-        mathematical research, data science and
-        research-oriented internships.
-
+        I am highly motivated to pursue a Master 2 in fundamental probability and a PhD. I am actively interested in quantitative finance, mathematical research, and data science opportunities.
     </p>
-
-
-    <div class="hero-buttons"
-         style="justify-content:center;">
-
-        <a href="mailto:d_dmitri@icloud.com"
-           class="button primary">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            Email me
-
+    <div class="hero-buttons" style="justify-content:center;">
+        <a href="mailto:d_dmitri@icloud.com" class="button primary">
+            <i class="fa-solid fa-envelope"></i> Email me
         </a>
-
+        <a href="tel:+33772365233" class="button">
+            <i class="fa-solid fa-phone"></i> 07 72 36 52 33
+        </a>
     </div>
-
-
-    <div class="social-links">
-
-        <a href="https://github.com/Undeavor"
-           target="_blank"
-           title="GitHub">
-
-            <i class="fa-brands fa-github"></i>
-
-        </a>
-
-        <a href="https://www.linkedin.com/"
-           target="_blank"
-           title="LinkedIn">
-
-            <i class="fa-brands fa-linkedin"></i>
-
-        </a>
-
+    <div class="social-links" style="margin-top: 2rem;">
+        <a href="https://github.com/d-dumonteil" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/dimitri-dumonteil" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
     </div>
-
 </section>
-
 
 </main>
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
 <footer>
-
-    © 2026 Dumonteil Dimitri
-
-    ·
-
-    Built with HTML & CSS
-
-    ·
-
-    <a href="https://github.com/Undeavor"
-       target="_blank">
-
-        GitHub
-
-    </a>
-
+    © 2026 Dumonteil Dimitri · Built with HTML & CSS
 </footer>
-
 
 </body>
 </html>
